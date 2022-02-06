@@ -9,7 +9,7 @@
 
 ## Sudo
 
-<b style="font-size:16px"> Step 1: Install sudo </b>
+### Step 1: Install sudo
 
 Change user to root account, simply run `su` or `su –` without any arguments.
 
@@ -36,7 +36,7 @@ $ sudo
 # if not, it will display a message "sudo command not found"
 ```
 
-<b style="font-size:16px"> Step 2: Adding User to sudo Group </b>
+### Step 2: Adding User to sudo Group
 
 Add user to sudo group by running either of the commands: `adduser <username> sudo` or `usermod -aG sudo <username>`
 
@@ -88,7 +88,7 @@ $ sudo -l
 [sudo] password for <username>: <password>
 ```
 
-<b style="font-size:16px"> Step 3: Running root-Privileged Commands </b>
+### Step 3: Running root-Privileged Commands
 
 Run root-privileged commands via prefix `sudo`. For instance:
 
@@ -99,7 +99,7 @@ $ sudo apt update
 # update installed packages
 ```
 
-<b style="font-size:16px"> Step 4: Configure sudo Group </b>
+### Step 4: Configure sudo Group
 
 Create directory `/var/log/sudo`. This is where the log file will be saved.
 
@@ -148,7 +148,7 @@ Defaults        secure_path="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/
 
 ## SSH & UFW
 
-<b style="font-size:16px"> Step 1: Install & Configure SSH </b>
+### Step 1: Install & Configure SSH
 
 Install openssh-server
 
@@ -192,7 +192,7 @@ $ sudo service ssh status
 $ sudo systemctl status ssh
 ```
 
-<b style="font-size:16px"> Step 2: Install & Configure UFW (Uncomplicated Firewall)</b>
+### Step 2: Install & Configure UFW (Uncomplicated Firewall)
 
 Install UFW
 
@@ -212,7 +212,7 @@ Enable UFW (firewall)
 $ sudo ufw enable
 ```
 
-Allow incoming connections using Port 4242
+Allow incoming connections using `Port 4242`
 
 ```sh
 $ sudo ufw allow 4242
@@ -224,9 +224,9 @@ Check UFW status
 $ sudo ufw status
 ```
 
-<b style="font-size:16px"> Step 3: Connecting to Server via SSH</b>
+### Step 3: Connecting to Server via SSH
 
-SSH into your virtual machine using Port 4242. To check IP address, use command `ip addr show` or `ip a`
+SSH into your virtual machine using `Port 4242`. To check IP address, use command `ip addr show` or `ip a`
 
 ```sh
 $ ssh <username>@<ip_address> -p 4242
@@ -240,4 +240,124 @@ $ logout
 
 ```
 $ exit
+```
+
+## User Management
+
+### Step 1: Set Up a Strong Password Policy
+
+#### Password Age
+
+Configure password age policy using the command: `sudo vim /etc/login.defs`
+
+```sh
+# Set password to expire every 30 days
+| line 160 | PASS_MAX_DAYS  99999 => PASS_MAX_DAYS  30
+
+# Set minimum number of days allowed before modification of password to 2 days
+| line 161 | PASS_MIN_DAYS  0 -> PASS_MIN_DAYS  2
+
+# Send warning message to user 7 days before password expires (default is 7 days)
+| line 161 | PASS_WARN_AGE  7
+```
+
+#### Password Strength
+
+Install package `libpam-pwquality` to set up password strength policies
+
+```sh
+$ sudo apt install libpam-pwquality
+```
+
+Verify if `libpam-pwquality` package has been installed successfully
+
+```
+$ dpkg -l | grep libpam-pwquality
+```
+
+Configure password strength policy by going to file `sudo vim /etc/pam.d/common-password`.
+
+```sh
+25 password        requisite                       pam_pwquality.so retry=3 <add policies here>
+```
+
+Output should look like this:
+
+```
+25 password        requisite                       pam_pwquality.so retry=3 minlen=10 ucredit=-1 dcredit=-1 maxrepeat=3 reject_username difok=7 enforce_for_root
+```
+
+Explanation of password policies
+
+```sh
+# Set password minimum length to 10 characters
+minlen=10
+
+# Require at least an uppercase and numeric character
+# -1 means that it requires at least one character
+ucredit=-1
+dcredit=-1
+
+# Set a maximum of 3 consecutive identical characters
+maxrepeat=3
+
+# Reject password if it contains name of user
+reject_username
+
+# Set the number of changes required in the new password from old password to 7
+difok=7
+
+# Implement the same policy on root
+enforce_for_root
+```
+
+Set new passwords for the users already created (root included), following the new password policy:
+
+```
+$ passwd      <- change user password
+$ sudo passwd <- change root password
+```
+
+### Step 2: Creating New User
+
+Create new user
+
+```sh
+$ sudo adduser <username>
+```
+
+Verify if user has been created
+
+```sh
+getent passwd <username>
+```
+
+Check user's password expiry information
+
+```sh
+$ sudo chage -l <username>
+```
+
+### Step 3: Creating New Group
+
+Create new `user42` group
+
+```sh
+$ sudo addgroup user42
+```
+
+Add user to `user42` group by using either of the following commands:
+
+```sh
+$ adduser <username> user42
+```
+
+```sh
+$ sudo usermod -aG user42 <username>
+```
+
+Verify if user has been added to `user42`
+
+```sh
+$ getent group user42
 ```
