@@ -146,4 +146,98 @@ Defaults        requiretty
 Defaults        secure_path="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/snap/bin"
 ```
 
-## SSH
+## SSH & UFW
+
+<b style="font-size:16px"> Step 1: Install & Configure SSH </b>
+
+Install openssh-server
+
+```sh
+$ sudo apt install openssh-server
+```
+
+Verify if openssh-server is installed
+
+```
+$ ssh -V
+```
+
+```
+$ dpkg -l | grep sudo
+```
+
+Configure SSH in `/etc/ssh/sshd_config`
+
+```
+$ sudo vim /etc/ssh/sshd_config
+```
+
+Find and change the following lines in `/etc/ssh/sshd_config`
+
+```
+# Set-up SSH using Port 4242
+#Port22 -> Port 4242
+
+# Disable SSH login as root
+#PermitRootLogin prohibit-password -> PermitRootLogin no
+```
+
+Check status of SSH
+
+```sh
+$ sudo service ssh status
+```
+
+```sh
+$ sudo systemctl status ssh
+```
+
+<b style="font-size:16px"> Step 2: Install & Configure UFW (Uncomplicated Firewall)</b>
+
+Install UFW
+
+```sh
+$ sudo apt install ufw
+```
+
+Verify if UFW is installed
+
+```sh
+$ dpkg -l | grep ufw
+```
+
+Enable UFW (firewall)
+
+```sh
+$ sudo ufw enable
+```
+
+Allow incoming connections using Port 4242
+
+```sh
+$ sudo ufw allow 4242
+```
+
+Check UFW status
+
+```sh
+$ sudo ufw status
+```
+
+<b style="font-size:16px"> Step 3: Connecting to Server via SSH</b>
+
+SSH into your virtual machine using Port 4242. To check IP address, use command `ip addr show` or `ip a`
+
+```sh
+$ ssh <username>@<ip_address> -p 4242
+```
+
+To leave SSH connection use either of the following commands below:
+
+```
+$ logout
+```
+
+```
+$ exit
+```
