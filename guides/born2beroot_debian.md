@@ -394,7 +394,7 @@ $ getent group user42
 ```
 ## cron
 
-Install netstat tools (for checking TCP connections)
+Install netstat tools (for checking TCP connections which will be used in monitoring.sh)
 
 ```sh
 $ sudo apt install net-tools
