@@ -118,3 +118,7 @@ $ sudo vim /etc/hostname
 - `gpasswd -d <username> <groupname>` - removes user from group;
 - `getent group <groupname>` - show users in group;
 - `id -g <username>` - show user's main group GID.
+
+## Cron
+
+![cron](../images/cron.jpeg)

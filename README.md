@@ -10,6 +10,7 @@ This project aims to introduce you to the wonderful world of virtualization. You
 - [Born2beRoot with Debian OS](./guides/born2beroot_debian.md)
 - [Evaluation Process](./guides/Evaluation_Process.pdf)
 - [Evaluation Answers](./guides/evaluation_process_answers.md)
+- [Commands Guides](./commands.md)
 - [References](./guides/references.md)
 
 ## Score
