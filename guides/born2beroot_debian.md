@@ -55,7 +55,7 @@ $ groups <username>
 <username> : <username> cdrom floppy sudo audio dip video plugdev netdev bluetooth
 $ getent group sudo
 sudo:x:27:<username>
-$ id -Gn sudo
+$ id -Gn <username>
 <username> cdrom floppy sudo audio dip video plugdev netdev bluetooth
 ```
 
