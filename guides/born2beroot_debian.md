@@ -110,7 +110,7 @@ $ sudo mkdir /var/log/sudo
 Configure sudo in this path `/etc/sudoers.d/<filename>`. `<filename>` shall not end in `~` or contain `.`.
 
 ```sh
-$ sudo vim /etc/sudoers.d/<filename>
+$ sudo vim /etc/sudoers.d/sudo_config
 
 # Why use /etc/sudoers.d/ ?
 
@@ -392,6 +392,7 @@ Verify if user has been added to `user42`
 ```sh
 $ getent group user42
 ```
+
 ## cron
 
 Install netstat tools (for checking TCP connections which will be used in monitoring.sh)
@@ -401,6 +402,7 @@ $ sudo apt install net-tools
 ```
 
 Change user to root account via `su` command.
+
 ```sh
 $ su
 ```
@@ -415,12 +417,14 @@ After adding content to `monitoring.sh`, you can go back to your `username` acco
 $ sh /usr/local/bin/monitoring.sh
 ```
 
-Configure cron as root 
+Configure cron as root
+
 ```sh
 $ sudo crontab -u root -e
 ```
 
 Schedule a shell script to run every 10 minutes
+
 ```sh
 # line 23
 # m h  dom mon dow   command
@@ -428,6 +432,7 @@ Schedule a shell script to run every 10 minutes
 ```
 
 Check root's scheduled cron jobs
+
 ```sh
 $ sudo crontab -u root -l
 ```
