@@ -392,3 +392,37 @@ Verify if user has been added to `user42`
 ```sh
 $ getent group user42
 ```
+## cron
+
+Install netstat tools
+
+```sh
+$ sudo apt install net-tools
+```
+
+Insert bash commands via `sudo vim /usr/local/bin/monitoring.sh`
+
+The content of the `monitoring.sh` can be seen [here](../scripts/monitoring.sh)
+
+Execute the script
+
+```sh
+$ sudo /usr/local/bin/monitoring.sh
+```
+
+Configure cron as root 
+```sh
+$ sudo crontab -u root -e
+```
+
+Schedule a shell script to run every 10 minutes
+```sh
+# line 23
+# m h  dom mon dow   command
+*/10 * * * * sh /path/to/script
+```
+
+Check root's scheduled cron jobs
+```sh
+$ sudo crontab -u root -l
+```
