@@ -51,7 +51,7 @@ echo "#Connections TCP: ${TCP} ${TCPMSSG}"
 echo "#User log: ${USERLOG}"
 
 ## Shows the IPv4 address of your server and its MAC (Media Access Control) address
-echo "#Network: IP ${IP}"
+echo "#Network: IP ${IP} ${MAC}"
 
 ## Shows the number of commands executed with the sudo program
 echo "#Sudo: ${SUDO} cmd"
