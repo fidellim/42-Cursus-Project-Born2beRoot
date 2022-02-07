@@ -409,7 +409,7 @@ Then, insert bash commands via `sudo vim /usr/local/bin/monitoring.sh`
 
 The content of the `monitoring.sh` can be seen [here](../scripts/monitoring.sh)
 
-After adding content to `monitoring.sh`, test the script by executing it
+After adding content to `monitoring.sh`, you can go back to your `username` account via `su <username>`. Then, test the script by executing it
 
 ```sh
 $ sh /usr/local/bin/monitoring.sh
