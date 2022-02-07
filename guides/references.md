@@ -1,5 +1,10 @@
 # Born2beRoot References
 
+## Sudo
+
+- [Input/Output Logs](https://unix.stackexchange.com/questions/108577/how-to-log-commands-within-a-sudo-su)
+- [Sudo Configurations](https://www.tecmint.com/sudoers-configurations-for-setting-sudo-in-linux/)
+
 ## SSH
 
 - [Install & Configure SSH 1](https://phoenixnap.com/kb/how-to-enable-ssh-on-debian)
@@ -17,7 +22,8 @@
 ## User Management
 
 - [User Commands](https://www.pluralsight.com/blog/tutorials/linux-add-user-command)
-
+- [Add Users](https://phoenixnap.com/kb/how-to-create-sudo-user-on-ubuntu)
+- [Usermod flags](https://linux.die.net/man/8/usermod)
 ## Script
 
 - [uname](https://www.geeksforgeeks.org/uname-command-in-linux-with-examples/)
