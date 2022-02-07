@@ -13,7 +13,7 @@ PCTDISK=$(df -Bm | grep /dev/ | grep -v /boot | awk '{ud += $3} {fd += $2} END {
 CPU=$(top -bn1 | grep '^%Cpu' | cut -c 9- | xargs | awk '{printf("%.1f%%"), $1 + $3}')
 LASTBOOT=$(who -b | awk '$1 == "system" {print $3 " " $4}')
 LVM=$(if [ $(lsblk | grep "lvm" | wc -l) -eq 0 ]; then echo no; else echo yes; fi)
-TCP=$(cat /proc/net/sockstat{,6} | awk '$1 == "TCP:" {print $3}')
+TCP=$(netstat -an | grep ESTABLISHED | wc -l) # display connection for TCP
 TCPMSSG=$(if [ ${TCP} -eq 0 ]; then echo NOT ESTABLISHED; else echo ESTABLISHED; fi)
 USERLOG=$(users | wc -w) # wc -w => counts words
 IP=$(hostname -I)

@@ -99,6 +99,22 @@ $ sudo hostnamectl set-hostname <new-hostname>
 $ sudo vim /etc/hostname
 ```
 
+Change `etc/hosts` file
+```
+$ sudo vim /etc/hosts
+```
+
+Change old_hostname to new_hostname
+```
+127.0.0.1   localhost
+127.0.0.1   new_hostname
+```
+
+Reboot and check changes
+```
+$ sudo reboot
+```
+
 ## User
 
 - `less /etc/passwd | cut -d ":" -f 1` - show list of all users on computer;

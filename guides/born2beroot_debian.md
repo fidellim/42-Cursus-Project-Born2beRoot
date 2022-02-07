@@ -419,7 +419,7 @@ Schedule a shell script to run every 10 minutes
 ```sh
 # line 23
 # m h  dom mon dow   command
-*/10 * * * * sh /path/to/script
+*/10 * * * * sh /path/to/script | wall
 ```
 
 Check root's scheduled cron jobs
