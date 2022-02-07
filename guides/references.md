@@ -22,6 +22,18 @@
 
 - [uname](https://www.geeksforgeeks.org/uname-command-in-linux-with-examples/)
 - [disk free (df)](https://www.geeksforgeeks.org/df-command-in-linux-with-examples/)
+- [Find Linux Version](https://www.cyberciti.biz/faq/find-print-linux-unix-kernel-version/)
+
+## Cron
+
+- [Cron commands](https://phoenixnap.com/kb/set-up-cron-job-linux)
+- [Cron Jobs for Beginners](https://youtu.be/v952m13p-b4)
+- [Cron Jobs by Corey Schafer](https://youtu.be/QZJ1drMQz1A)
+- [Crontab commands](https://www.computerhope.com/unix/ucrontab.htm)
+- [Crontab Guru](https://crontab.guru/every-2-minutes)
+
+## Wall
+- [Wall Explanation](https://youtu.be/-pFhQJqgNjo)
 
 ## Born2beRoot Projects
 
