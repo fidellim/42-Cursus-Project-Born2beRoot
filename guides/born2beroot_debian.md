@@ -128,7 +128,7 @@ Edit the file `/etc/sudoers.d/<filename>`. Then, configure the new sudo rules. J
 Defaults        passwd_tries=3
 
 # Add a custom error message in the event of an incorrect password
-Defaults        badpass_message="<custom-error-message>"
+Defaults        badpass_message="Sorry, wrong password! Try again!"
 
 # Log all sudo commands to /var/log/sudo/<filename>
 Defaults        logfile="/var/log/sudo/sudo.log"
