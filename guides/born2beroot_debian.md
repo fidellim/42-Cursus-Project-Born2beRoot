@@ -131,7 +131,7 @@ Defaults        passwd_tries=3
 Defaults        badpass_message="<custom-error-message>"
 
 # Log all sudo commands to /var/log/sudo/<filename>
-Defaults        logfile="/var/log/sudo/<filename>"
+Defaults        logfile="/var/log/sudo/sudo.log"
 
 # To archive all sudo inputs & outputs to /var/log/sudo/:
 # The default I/O log directory is /var/log/sudo-io
