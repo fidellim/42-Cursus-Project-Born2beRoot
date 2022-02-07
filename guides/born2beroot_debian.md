@@ -400,14 +400,19 @@ Install netstat tools (for checking TCP connections which will be used in monito
 $ sudo apt install net-tools
 ```
 
-Insert bash commands via `sudo vim /usr/local/bin/monitoring.sh`
+Change user to root account via `su` command.
+```sh
+$ su
+```
+
+Then, insert bash commands via `sudo vim /usr/local/bin/monitoring.sh`
 
 The content of the `monitoring.sh` can be seen [here](../scripts/monitoring.sh)
 
-Execute the script
+After adding content to `monitoring.sh`, test the script by executing it
 
 ```sh
-$ sudo /usr/local/bin/monitoring.sh
+$ sh /usr/local/bin/monitoring.sh
 ```
 
 Configure cron as root 
