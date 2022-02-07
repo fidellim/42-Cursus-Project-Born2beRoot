@@ -232,6 +232,37 @@ SSH into your virtual machine using `Port 4242`. To check IP address, use comman
 $ ssh <username>@<ip_address> -p 4242
 ```
 
+Alternatively, you can add a forward rule on your machine
+
+```
+1. Go to VirtualBox -> Choose the VM-> Select Settings
+2. Choose “Network” -> "Adapter 1" -> "Advanced" -> "Port Forwarding"
+```
+
+![port forward](../images/port_forward_1.png)
+
+Enter the values shown:
+
+![port forward 2](../images/port_forward_2.png)
+
+Restart SSH server
+
+```sh
+$ sudo systemctl restart ssh
+```
+
+Check SSH status
+
+```sh
+$ sudo service sshd status
+```
+
+From host side from iTerm2 or Terminal enter as shown below:
+
+```sh
+$ ssh <username>@127.0.0.1 -p 4242
+```
+
 To leave SSH connection use either of the following commands below:
 
 ```
