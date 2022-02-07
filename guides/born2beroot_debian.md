@@ -252,7 +252,7 @@ Configure password age policy using the command: `sudo vim /etc/login.defs`
 
 ```sh
 # Set password to expire every 30 days
-| line 160 | PASS_MAX_DAYS  99999 => PASS_MAX_DAYS  30
+| line 160 | PASS_MAX_DAYS  99999 -> PASS_MAX_DAYS  30
 
 # Set minimum number of days allowed before modification of password to 2 days
 | line 161 | PASS_MIN_DAYS  0 -> PASS_MIN_DAYS  2

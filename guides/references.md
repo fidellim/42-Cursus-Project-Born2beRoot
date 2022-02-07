@@ -14,6 +14,15 @@
 
 - [Password Policy Settings](https://www.networkworld.com/article/2726217/how-to-enforce-password-complexity-on-linux.html)
 
+## User Management
+
+- [User Commands](https://www.pluralsight.com/blog/tutorials/linux-add-user-command)
+
+## Script
+
+- [uname](https://www.geeksforgeeks.org/uname-command-in-linux-with-examples/)
+- [disk free (df)](https://www.geeksforgeeks.org/df-command-in-linux-with-examples/)
+
 ## Born2beRoot Projects
 
 - [Project 1](https://github.com/hanshazairi/42-born2beroot#setting-up-a-cron-job)
