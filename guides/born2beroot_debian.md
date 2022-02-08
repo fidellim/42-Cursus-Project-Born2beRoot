@@ -423,6 +423,16 @@ After adding content to `monitoring.sh`, you can go back to your `username` acco
 $ sh /usr/local/bin/monitoring.sh
 ```
 
+If you would like to increase CPU load run the command:
+```sh
+$ for i in $(seq $(getconf _NPROCESSORS_ONLN)); do yes > /dev/null & done
+```
+
+To stop the program above, run the command:
+```sh
+$ pkill --signal STOP yes
+```
+
 Configure cron as root
 
 ```sh
@@ -441,4 +451,26 @@ Check root's scheduled cron jobs
 
 ```sh
 $ sudo crontab -u root -l
+```
+
+## Bonus
+
+### Cockpit (Free Choice Service)
+
+Install cockpit
+```sh
+$ sudo apt install cockpit
+```
+
+Allow `port 9090` on firewall
+```sh
+$ sudo ifw allow 9090/tcp
+```
+
+Add port forwarding rule for `port 9090`
+**add image**
+
+Open cockpit on a browser using `localhost:9090`
+```sh
+localhost: 9090
 ```
