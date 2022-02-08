@@ -86,7 +86,7 @@ $ sudo ufw delete allow <port number>
 Show current host information
 
 ```sh
-$ hostnamectl status
+$ sudo hostnamectl status
 ```
 
 Change hostname
@@ -100,17 +100,20 @@ $ sudo vim /etc/hostname
 ```
 
 Change `etc/hosts` file
+
 ```
 $ sudo vim /etc/hosts
 ```
 
 Change old_hostname to new_hostname
+
 ```
 127.0.0.1   localhost
 127.0.0.1   new_hostname
 ```
 
 Reboot and check changes
+
 ```
 $ sudo reboot
 ```
