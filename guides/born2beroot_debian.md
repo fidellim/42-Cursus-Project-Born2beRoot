@@ -349,6 +349,12 @@ $ passwd      <- change user password
 $ sudo passwd <- change root password
 ```
 
+New Passwords
+
+**flim** : `42AbuDhabi123!`
+
+**root** : `42AbuDhabi123!`
+
 ### Step 2: Creating New User
 
 Create new user
