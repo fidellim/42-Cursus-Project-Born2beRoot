@@ -1,5 +1,10 @@
 # Born2beRoot References
 
+## Operating Systems
+
+- [Debian vs CentOS I](https://www.educba.com/centos-vs-debian/)
+- [Debian vs CentOS II](https://1gbits.com/blog/debian-vs-centos/)
+
 ## Sudo
 
 - [Input/Output Logs](https://unix.stackexchange.com/questions/108577/how-to-log-commands-within-a-sudo-su)

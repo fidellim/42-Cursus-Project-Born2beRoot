@@ -59,8 +59,9 @@
 
 ## User
 
-The subject requests that a user with the login of the student being evaluated is present on the virtual machine. Check that it has been added and that it belongs to the “sudo” and “user42” groups.
-Make sure the rules imposed in the subject concerning the password policy have been put in place by following the following steps.
+- The subject requests that a user with the login of the student being evaluated is present on the virtual machine. Check that it has been added and that it belongs to the “sudo” and “user42” groups.
+    - `add the command`
+- Make sure the rules imposed in the subject concerning the password policy have been put in place by following the following steps.
 First, create a new user. Assign it to a password of your choice, respecting the subject rules. The student being evaluated must now explain to you how they were able to set up the rules requested in the subject on their virtual machine.
 Normally there should be one or two modified files. If there is any problem, the evaluation stops here.
 
@@ -106,7 +107,7 @@ The student being evaluated should help you use SSH in order to log in with the 
 
 # Script Monitoring
 
-How their script works by showing you the code.
+- How their script works by showing you the code.
 What “Cron” is.
 How the student being evaluated set up their script so that it runs every 10 minutes from when the server starts
 Once the correct functioning of the script has been verified, the student being evaluated should ensure that this script runs every minute. You can run whatever you want to make sure the script runs with dynamic values correctly. Finally, the student being evaluated should make the script stop running when the server has started up, but without modifying the script itself. To check this point, you will have to restart the server one last time. At startup, it will be necessary to check that the script still exists in the same place, that its rights have remained unchanged, and that it has not been modified.
