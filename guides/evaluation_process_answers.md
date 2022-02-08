@@ -2,22 +2,60 @@
 
 ## Project Overview
 
-How a virtual machine works.
-Their choice of operating system.
-The basic differences between CentOS and Debian.
-The purpose of virtual machines.
-If the evaluated student chose CentOS: what SELinux and DNF are.
-If the evaluated student chose Debian: the difference between Aptitude and Apt, and what APPArmor is.
+- How a virtual machine works.
+    - A software that allows one to run an operating system within another operating system. (e.g. Virtualbox and VMware).
+    - A virtual machine is a computer file, typically called an image, which behaves like an actual computer. It can run in a window as a separate computing environment, often to run a different operating system or even to function as the user's entire computer experience. 
+    - The virtual machine is partitioned from the rest of the system, meaning that the software inside a VM cannot interfere with the host computer's primary operating system.
+
+- Their choice of operating system.
+    - Debian
+- The basic differences between CentOS and Debian.
+
+|  Paramaters  |  CentOS  |  Debian  |
+|  :-:  |  ----------------------------  |  ---------------------------------------------  |
+|  Community  |  Supported by Red Hat community  |  Supported by Debian individuals  |
+|  Market Presence  |  Large market due to its user-friendly nature  |  Lacks market due to its terminal end usage  |
+|  Architecture Support  | Doesn't come with multiple architecture support | Has multiple architecture support |
+|  Release Cycle  | New updates and upgrades take time, thus making it stable | Has a release cycle of 2 years |
+|  Version Upgrade  | Better to install a new CentOS version rather than go for upgrading the older version as it is cumbersome | Can be easily upgraded from one stable version to another |
+|  User Interface | Has complicated GUI | Has user-friendly apps and GUI |
+|  Package Manager  | Uses Yum | Uses Apt |
+|  Package Number  | Has limited packages | Has vast amount of packages in its default repository |
+
+    - CentOS is the most popular distribution when it comes to server environments.
+    - Debian is by far the most secure and stable Linux distribution available to date. It has a bug tracking system to resolve issues.
+    - If you use these distributions as a server, you should select CentOS as long-term support and updates. Debian is mostly preferred by experienced users who want to work as an admin. In contrast, a business person mostly prefers CentOS who wants a stable and secure Linux distribution for their applications.
+
+- The purpose of virtual machines.
+    - Building and deploying apps to the cloud.
+    - Trying out a new operating system (OS).
+    - Spinning up a new environment to make it simpler and quicker for developers to run dev-test scenarios.
+    - Backing up your existing OS.
+    - VMs allow you to more easily scale your apps by adding more physical or virtual servers to distribute the workload across multiple VMs.
+- `If the evaluated student chose CentOS: what SELinux and DNF are.`
+- If the evaluated student chose Debian: the difference between Aptitude and Apt, and what APPArmor is.
+    - Aptitiude VS APT
+        - Aptitude is a high-level package manager while APT is lower-level package manager which can be used by other higher-level package managers.
+        - Aptitude has an interface while apt doesn't.
+    - AppArmor
+        - is a Linux kernel security module that allows the system administrator to restrict programs' capabilities with per-program profiles.
+        - allows you to define a security policy that provides granular permissions for all users, programs, processes, files, and devices.
+        - provides the flexibility to define policies only on those processes/scripts you like.
+        - enforces protection over objects as per configuration. That means, the application "immunizes" other apps one by one. By default, something that has not been previously set as "protected" is, by all means, vulnerable.
+        - AppArmor might not be considered as efficient and secure as SELinux, for example, but it has an easier interface and is more user-friendly. For someone who is not all-accustomed to system administration, it becomes a great alternative for managing access control.
 
 ## Simple Setup
 
-Ensure that the machine does not have a graphical environment at launch.
-A password will be requested before attempting to connect to this machine. Finally, connect with a user with the help of the student being evaluated. This user must not be root.
-Pay attention to the password chosen, it must follow the rules imposed in the subject.
-Check that the UFW service is started with the help of the evaluator.
-Check that the SSH service is started with the help of the evaluator.
-Check that the chosen operating system is Debian or CentOS with the help of the evaluator.
-If something does not work as expected or is not clearly explained, the evaluation stops here.
+- Ensure that the machine does not have a graphical environment at launch.
+    - A password will be requested before attempting to connect to this machine. Finally, connect with a user with the help of the student being evaluated. This user must not be root.
+- Pay attention to the password chosen, it must follow the rules imposed in the subject.
+- Check that the UFW service is started with the help of the evaluator.
+    - `sudo ufw status`
+- Check that the SSH service is started with the help of the evaluator.
+    - `sudo systemctl status ssh`
+    - `sudo service ssh status`
+- Check that the chosen operating system is Debian or CentOS with the help of the evaluator.
+    - `head -n 2 /etc/os-release`
 
 ## User
 
