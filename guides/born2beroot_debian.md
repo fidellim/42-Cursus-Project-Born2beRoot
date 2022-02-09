@@ -507,6 +507,7 @@ Start interactive script to remove insecure default settings via `sudo mysql_sec
 $ sudo mysql_secure_installation
 
 Enter current password for root (enter for none): #Just press Enter (do not confuse database root with system root)
+Switch to unix-socket authentication [Y/n] n
 Set root password? [Y/n] n
 Remove anonymous users? [Y/n] Y
 Disallow root login remotely? [Y/n] Y
