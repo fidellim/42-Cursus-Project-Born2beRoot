@@ -238,11 +238,11 @@ Alternatively, you can add a forward rule on your machine
 1. Go to VirtualBox -> Choose the VM-> Select Settings
 2. Choose “Network” -> "Adapter 1" -> "Advanced" -> "Port Forwarding"
 ```
-
+<br/>
 ![port forward](../images/port_forward_1.png)
 
 Enter the values shown:
-
+<br/>
 ![port forward 2](../images/port_forward_2.png)
 
 Restart SSH server
@@ -386,7 +386,7 @@ $ sudo addgroup user42
 Add user to `user42` group by using either of the following commands:
 
 ```sh
-$ adduser <username> user42
+$ sudo adduser <username> user42
 ```
 
 ```sh
@@ -417,6 +417,11 @@ Then, insert bash commands via `sudo vim /usr/local/bin/monitoring.sh`
 
 The content of the `monitoring.sh` can be seen [here](../scripts/monitoring.sh)
 
+Make the file executable 
+```sh
+$ sudo chmod 755 /usr/local/bin/monitoring.sh
+```
+
 After adding content to `monitoring.sh`, you can go back to your `username` account via `su <username>`. Then, test the script by executing it
 
 ```sh
@@ -446,7 +451,7 @@ Schedule a shell script to run every 10 minutes
 ```sh
 # line 23
 # m h  dom mon dow   command
-*/10 * * * * sh /path/to/script | wall
+*/10 * * * * sh /usr/local/bin/monitoring.sh | wall
 ```
 
 Check root's scheduled cron jobs
@@ -479,7 +484,7 @@ Allow incoming connections using Port 80
 $ sudo ufw allow 80
 ```
 
-Add a new port forwarding rule for `Port 80`
+Add a new port forwarding rule for `Port 80` <br/>
 ![port 80 port forwarding rule](../images/port_forwarding_port_80.png)
 
 #### Step 2: Install & Configuring MariaDB
@@ -647,8 +652,8 @@ Replace the commands below:
 Change Wordpress folders permissions
 
 ```sh
-$ chown -R www-data:www-data /var/www/html/
-$ chmod -R 755 /var/www/html/
+$ sudo chown -R www-data:www-data /var/www/html/
+$ sudo chmod -R 755 /var/www/html/
 ```
 
 #### Step 5: Configure Lighttpd
@@ -696,10 +701,10 @@ $ sudo apt install cockpit
 Allow `port 9090` on firewall
 
 ```sh
-$ sudo ifw allow 9090/tcp
+$ sudo ufw allow 9090
 ```
 
-Add a new port forwarding rule for `Port 9090`
+Add a new port forwarding rule for `Port 9090` <br/>
 ![port 9090 port forwarding rule](../images/port_forwarding_port_9090.png)
 
 Open cockpit on a browser using `localhost:9090`
