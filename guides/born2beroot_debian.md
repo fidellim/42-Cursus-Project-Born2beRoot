@@ -239,10 +239,12 @@ Alternatively, you can add a forward rule on your machine
 2. Choose “Network” -> "Adapter 1" -> "Advanced" -> "Port Forwarding"
 ```
 <br/>
+
 ![port forward](../images/port_forward_1.png)
 
 Enter the values shown:
 <br/>
+
 ![port forward 2](../images/port_forward_2.png)
 
 Restart SSH server
