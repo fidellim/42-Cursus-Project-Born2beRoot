@@ -7,6 +7,30 @@
 - Watch partition (mandatory) set-up [here]()
 - Watch partition (bonus) set-up [here]()
 
+## Partition Information
+
+### Mandatory
+
+- sda (Hard Drive Space) : 8 GB
+  - sda1 [/boot] : 487 MB
+  - sda5_crypt : max
+    - wil--vg-root [/] : 2.8 GB
+    - wil--vg-swap [SWAP] : 976 MB
+    - wil--vg-home [/home] : 3.8 GB
+
+### Bonus
+
+- sda (Hard Drive Space) : 31540 MB
+  - sda1 [/boot] : 524.934 MB
+  - sda5_crypt : max
+    - LVMGroup-root [/] : 10.732 GB
+    - LVMGroup-swap [SWAP] : 2.464 GB
+    - LVMGroup-home [/home] : 5.339 GB
+    - LVMGroup-var [/var] : 3.189 GB
+    - LVMGroup-srv [/srv] : 3.189 GB
+    - LVMGroup-tmp [/tmp] : 3.189 GB
+    - LVMGroup-var--log [/var/log] : 4345.366 MB
+
 ## Sudo
 
 ### Step 1: Install sudo
@@ -41,7 +65,7 @@ $ sudo
 Add user to sudo group by running either of the commands: `adduser <username> sudo` or `usermod -aG sudo <username>`
 
 ```sh
-$ adduser <username> sudo
+$ sudo adduser <username> sudo
 ```
 
 ```sh
@@ -238,6 +262,7 @@ Alternatively, you can add a forward rule on your machine
 1. Go to VirtualBox -> Choose the VM-> Select Settings
 2. Choose “Network” -> "Adapter 1" -> "Advanced" -> "Port Forwarding"
 ```
+
 <br/>
 
 ![port forward](../images/port_forward_1.png)
@@ -419,7 +444,8 @@ Then, insert bash commands via `sudo vim /usr/local/bin/monitoring.sh`
 
 The content of the `monitoring.sh` can be seen [here](../scripts/monitoring.sh)
 
-Make the file executable 
+Make the file executable
+
 ```sh
 $ sudo chmod 755 /usr/local/bin/monitoring.sh
 ```

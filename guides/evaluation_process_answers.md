@@ -67,12 +67,15 @@
 
   - `sudo adduser <username>`
   - `getent passwd <username>`
+  - Password policy files
+    - `sudo vim /etc/login.defs`
+    - `sudo vim /etc/pam.d/common-password`
 
 - Now that you have a new user, ask the student being evaluated to create a group named “evaluating” in front of you and assign it to this user. Finally, check that this user belongs to the “evaluating” group.
   - `sudo addgroup evaluating`
   - `adduser <username> evaluating`
 - Finally, ask the student being evaluated to explain the advantages of this password policy, as well as the advantages and disadvantages of its implementation. Of course, answering that it is because the subject asks for it does not count.
-  - PASSWORD POLICY
+  - Having a unique password means it'll be harder to crack. A drawback might be that people will more likely forget their password unless it was saved or written somewhere.
 
 ## Hostname and Partitions
 
@@ -93,7 +96,7 @@
 - Ask the student being evaluated how to view the partitions for this virtual machine.
   - `lsblk`
 - Compare the output with the example given in the subject. Please note: If the student evaluated makes the bonuses, it will be necessary to refer to the bonus example. This part is an opportunity to discuss the scores! The student being evaluated should give you a brief explanation of how LVM works and what it is all about. If something does not work as expected or is not clearly explained, the evaluation stops here.
-  - LVM
+  - `Logical Volume Manager` is a system of mapping and managing hard disk memory used on Linux-kernel's based systems. Instead of the old method of partitioning disks on a single filesystem, and having it be limited to only 4 partitions, LVM allows you to work with "Logical Volumes", a more dinamically and flexible way to deal with your hardware.
 
 ## Sudo
 
@@ -104,9 +107,11 @@
   - `adduser <username> sudo`
   - Verify if user has been added to sudo: `groups <username>`
 - The subject imposes strict rules for sudo. The student being evaluated must first explain the value and operation of sudo using examples of their choice. In a second step, it must show you the implementation of the rules imposed by the subject.
-  - Answer it
+  - The value of sudo is that it gives users temporary root privilege. Only people that have that privilege can only access those files. This is to prevent conflicts from happening. For instance, sudo will allow users to list/edit files on a particular directory.
+  - Sudo policy file
+    - `sudo vim /etc/sudoers.d/sudo_config`
 - Verify that the “var/log/sudo” folder exists and has at least one file. Check the contents of the files in this folder, you should see a history of the commands used with sudo. Finally, try to run a command via sudo. See if the file(s) in the “var/log/sudo” folder has been updated.
-  - Answer
+  - `sudo vim /var/log/sudo/sudo.log`
 
 ## UFW
 
@@ -115,7 +120,8 @@
 - Check that it is working properly.
   - `sudo ufw status`
 - The student being evaluated should explain to you basically what UFW is and the value of using it.
-  - Answer
+  - UFW (unprotected firewall) is responsable for monitoring the information and data traffic from your local computer to the network. It allows/blocks incoming connections.
+  - The value of it is that users won't be able to connect to a particular port if UFW didn't open it.
 - List the active rules in UFW. A rule must exist for port 4242.
   - `sudo ufw status`
 - Add a new rule to open port 8080. Check that this one has been added by listing the active rules.
@@ -131,25 +137,28 @@
 - Check that it is working properly.
   - `sudo systemctl status ssh`
 - The student being evaluated must be able to explain to you basically what SSH is and the value of using it.
-  - Answer
+  - SSH (secure shell) is network protocol that gives users, particularly system administrators, a secure way to access a computer over an unsecured network. It provides users with a strong password authentication as well as a public key authentication. It attempts to safely communicate encrypted data over two computers using an open network.
 - Verify that the SSH service only uses port 4242.
   - `sudo systemctl status ssh`
 - The student being evaluated should help you use SSH in order to log in with the newly created user. To do this, you can use a key or a simple password. It will depend on the student being evaluated. Of course, you have to make sure that you cannot use SSH with the “root” user as stated in the subject.
-  - Answer
+  - `ssh <user>@localhost -p 4242`
+  - `ssh root@localhost -p 4242` should not work!
 
 # Script Monitoring
 
 The student being evaluated should explain to you simply:
 
 - How their script works by showing you the code.
+  - `sudo vim /usr/local/bin/monitoring.sh`
 - What “Cron” is.
-  - Answer
+  - Cron is a service that runs on the backgroud and lauches configured tasks on a schedule.
 - How the student being evaluated set up their script so that it runs every 10 minutes from when the server starts
-  - dasdsa
+  - `sudo crontab -u root -e`
 - Once the correct functioning of the script has been verified, the student being evaluated should ensure that this script runs every minute. You can run whatever you want to make sure the script runs with dynamic values correctly.
-  - Answer
+  - `*/1 * * * * sh /usr/local/bin/monitoring.sh | wall`
 - Finally, the student being evaluated should make the script stop running when the server has started up, but without modifying the script itself. To check this point, you will have to restart the server one last time. At startup, it will be necessary to check that the script still exists in the same place, that its rights have remained unchanged, and that it has not been modified.
-  - Answer
+  - `sudo crontab -u root -e`
+  - Commment this line: `*/1 * * * * sh /usr/local/bin/monitoring.sh | wall`
 
 ## Bonus
 
@@ -157,4 +166,4 @@ The student being evaluated should explain to you simply:
 - Setting up WordPress, only with the services required by the subject, is worth 2 points.
 - The free choice service is worth 1 point.
 - Verify and test the proper functioning and implementation of each extra service.
-For the free choice service, the student being evaluated has to give you a simple explanation about how it works and why they think it is useful. Please note that NGINX and Apache2 are prohibited.
+  For the free choice service, the student being evaluated has to give you a simple explanation about how it works and why they think it is useful. Please note that NGINX and Apache2 are prohibited.
