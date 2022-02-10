@@ -153,8 +153,8 @@ The student being evaluated should explain to you simply:
 
 ## Bonus
 
-Setting up partitions is worth 2 points.
-Setting up WordPress, only with the services required by the subject, is worth 2 points.
-The free choice service is worth 1 point.
-Verify and test the proper functioning and implementation of each extra service.
+- Setting up partitions is worth 2 points.
+- Setting up WordPress, only with the services required by the subject, is worth 2 points.
+- The free choice service is worth 1 point.
+- Verify and test the proper functioning and implementation of each extra service.
 For the free choice service, the student being evaluated has to give you a simple explanation about how it works and why they think it is useful. Please note that NGINX and Apache2 are prohibited.
