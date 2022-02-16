@@ -4,8 +4,7 @@
 
 - Download VirtualBox virtual machine [here](https://www.virtualbox.org/)
 - Download Debian OS [here](https://www.debian.org/)
-- Watch partition (mandatory) set-up [here]()
-- Watch partition (bonus) set-up [here]()
+- Watch partition (bonus) set-up [here](https://youtu.be/OQEdjt38ZJA)
 
 ## Partition Information
 
@@ -741,3 +740,18 @@ Open cockpit on a browser using `localhost:9090`
 ```sh
 localhost: 9090
 ```
+
+## Create Signature.txt
+
+1. Go to the path of your virtual machine
+   - `Windows`: %HOMEDRIVE%%HOMEPATH%\VirtualBox VMs\
+   - `Linux`: ~/VirtualBox VMs/
+   - `MacM1`: ~/Library/Containers/com.utmapp.UTM/Data/Documents/
+   - `MacOS`: ~/VirtualBox VMs
+2. Run the command below to generate the signature
+   - `Windows`: certUtil -hashfile centos_serv.vdi sha1
+   - `Linux`: sha1sum centos_serv.vdi
+   - `For Mac M1`: shasum Centos.utm/Images/disk-0.qcow2
+   - `MacOS`: shasum centos_serv.vd
+   - **Example output**: 6e657c4619944be17df3c31faa030c25e43e40a
+3. Copy the signature and paste it in a file called `signature.txt`
