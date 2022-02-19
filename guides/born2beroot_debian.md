@@ -186,7 +186,7 @@ $ ssh -V
 ```
 
 ```
-$ dpkg -l | grep sudo
+$ dpkg -l | grep ssh
 ```
 
 Configure SSH in `/etc/ssh/sshd_config`
