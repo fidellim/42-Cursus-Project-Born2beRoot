@@ -133,7 +133,7 @@
 ## SSH
 
 - Check that the SSH service is properly installed on the virtual machine
-  - `dpkg -l | grep sudo`
+  - `dpkg -l | grep ssh`
 - Check that it is working properly.
   - `sudo systemctl status ssh`
 - The student being evaluated must be able to explain to you basically what SSH is and the value of using it.
