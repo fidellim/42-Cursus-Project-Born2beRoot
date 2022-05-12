@@ -752,6 +752,6 @@ localhost: 9090
    - `Windows`: certUtil -hashfile centos_serv.vdi sha1
    - `Linux`: sha1sum centos_serv.vdi
    - `For Mac M1`: shasum Centos.utm/Images/disk-0.qcow2
-   - `MacOS`: shasum centos_serv.vd
+   - `MacOS`: shasum centos_serv.vdi
    - **Example output**: 6e657c4619944be17df3c31faa030c25e43e40a
 3. Copy the signature and paste it in a file called `signature.txt`
