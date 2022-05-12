@@ -85,7 +85,10 @@ $ id -Gn <username>
 To make changes take effect, run `reboot` and login using your user.
 
 ```sh
+-- If you are on root
 $ reboot
+-- Otherwise use the command below
+$ sudo reboot
 <--->
 Debian GNU/Linux 10 <hostname> tty1
 
